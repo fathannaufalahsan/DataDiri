@@ -39,7 +39,7 @@
 
         button {
             padding: 12px 25px;
-            background-color: #007bff;
+            background-color: #ff3b2f;
             color: white;
             border: none;
             cursor: pointer;
@@ -49,7 +49,7 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #ff3b2f;
         }
 
         .dark-mode button {
@@ -57,7 +57,7 @@
         }
 
         .dark-mode button:hover {
-            background-color: #218838;
+            background-color: #28a745;
         }
 
         /* Navbar */
@@ -92,131 +92,241 @@
             font-size: 18px;
             font-weight: 600;
         }
+
         /* Hero Section */
         .hero {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        color: #fff;
-        text-align: center;
-        padding: 0 20px;
-        position: relative;
-        overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('background.jpg'); /* Gradien + Gambar */
+            background-size: cover; /* Menyesuaikan gambar ke ukuran section */
+            background-position: center; /* Posisi gambar di tengah */
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-text {
-        max-width: 800px;
-        z-index: 1;
-        padding: 20px;
+            max-width: 800px;
+            z-index: 1;
+            padding: 20px;
         }
 
         .hero-text h1 {
-        font-size: 4rem; /* Diperbesar */
-        margin-bottom: 30px; /* Ruang lebih besar */
-        line-height: 1.2;
+            font-size: 4rem; /* Diperbesar */
+            margin-bottom: 30px; /* Ruang lebih besar */
+            line-height: 1.2;
         }
 
         .hero-text p {
-         font-size: 1.5rem; /* Diperbesar */
-        margin-bottom: 50px; /* Ruang lebih besar */
-        color: rgba(255, 255, 255, 0.8);
+            font-size: 1.5rem; /* Diperbesar */
+            margin-bottom: 50px; /* Ruang lebih besar */
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .hero-buttons {
-         display: flex;
-        justify-content: center;
-        gap: 30px; /* Ruang lebih besar */
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Ruang lebih besar */
         }
 
         .btn-primary, .btn-secondary {
-        padding: 15px 30px; /* Diperbesar */
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1rem; /* Diperbesar */
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 10px;
+            padding: 15px 30px; /* Diperbesar */
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem; /* Diperbesar */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-primary {
-        background-color: #ff6f61;
-        color: #fff;
+            background-color: #ff6f61;
+            color: #fff;
         }
 
         .btn-primary:hover {
-        background-color: #ff3b2f;
-        transform: translateY(-3px);
-        box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+            background-color: #ff3b2f;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+        }
+
+        .dark-mode .btn-primary:hover {
+            background-color: #28a745;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px #28a745;
         }
 
         .btn-secondary {
-        background-color: transparent;
-        border: 2px solid #ff6f61;
-        color: #ff6f61;
+            background-color: transparent;
+            border: 2px solid #ff6f61;
+            color: #ff6f61;
         }
 
         .btn-secondary:hover {
-        background-color: #ff6f61;
-        color: #fff;
-        transform: translateY(-3px);
-        box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+            background-color: #ff6f61;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+        }
+
+        .dark-mode .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #28a745;
+            color: #28a745;
+        }
+
+        .dark-mode .btn-secondary:hover {
+            background-color: #28a745;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px #28a745;
         }
 
         /* Mode Gelap */
         .dark-mode .hero {
-        background: linear-gradient(135deg, #0a192f 0%, #1f3a5f 100%);
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.8), rgba(31, 58, 95, 0.8)), url('background.jpg'); /* Gradien + Gambar */
         }
 
         @media (max-width: 768px) {
         .hero-text h1 {
-        font-size: 2.5rem; /* Diperkecil untuk mobile */
-         }
-
-        .hero-text p {
-        font-size: 1.2rem; /* Diperkecil untuk mobile */
-         }
-
-        .hero-buttons {
-        flex-direction: column;
-        gap: 20px; /* Ruang lebih besar untuk mobile */
+            font-size: 2.5rem; /* Diperkecil untuk mobile */
         }
 
-        .btn-primary, .btn-secondary {
-        width: 100%;
-        justify-content: center;
+        .hero-text p {
+            font-size: 1.2rem; /* Diperkecil untuk mobile */
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            gap: 20px; /* Ruang lebih besar untuk mobile */
          }
+
+        .btn-primary, .btn-secondary {
+            width: 100%;
+            justify-content: center;
+        }
         }
 
         /* About Section */
         .about {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #fff;
+            padding: 100px 20px;
+            background: #f9f9f9;
+            color: #333;
+            text-align: left;
         }
 
         .dark-mode .about {
-            background-color: #1e1e1e;
-            color: #ffffff;
+            background: #2d2d2d;
+            color: #fff;
         }
 
+        /* Container for About Section */
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fcf5e8;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark-mode .about-container {
+            background: #1e1e1e;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Title */
+        .section-title {
+            color: black;
+            text-align: center;
+        }
+
+        .dark-mode .section-title {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* About Paragraph */
         .about p {
-            font-size: 18px;
-            color: #777;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #555;
+            margin-top: 20px;
+            text-align: justify;
+            max-width: 100%;
         }
 
         .dark-mode .about p {
-            color: #ccc;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #ffffff;
+            margin-top: 20px;
+            text-align: justify;
+            max-width: 100%;
         }
 
-        /* Skills Section */
+        /* AOS Animation */
+        [data-aos="fade-up"] {
+            opacity: 0;
+            animation: fadeUp 1.5s ease-out forwards;
+        }
+
+        [data-aos="fade-up"] {
+            animation-delay: 0.3s;
+        }
+
+        /* Hover Effect on About Section */
+        .about-container:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+        }
+
+        /* Hover Effect on About Section */
+        .dark-mode .about-container:hover {
+            box-shadow: 0 20px 50px rgba(255, 250, 240, 0.8);
+            transform: translateY(-10px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+        .about-container {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .about p {
+            font-size: 1rem;
+        }
+        }
+
+        /* Keyframes for fadeUp animation */
+        @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Skills Section Styling */
         .skills {
             text-align: center;
             padding: 50px 20px;
             background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
         }
 
         .dark-mode .skills {
@@ -224,70 +334,227 @@
             color: #ffffff;
         }
 
-        .skills ul {
-            list-style-type: none;
-            padding: 0;
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
         }
 
-        .skills li {
-            font-size: 18px;
-            margin: 10px 0;
+        /* Skill Cards */
+        .skill-card {
+            background:#fcf5e8;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            cursor: pointer;
             opacity: 0;
             animation: fadeIn 2s ease-out forwards;
         }
 
-        .skills li:nth-child(1) {
+        /* Hover Effect for Skill Cards */
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hover Effect for Skill Cards */
+        .dark-mode .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 250, 240, 0.8);
+        }
+
+        /* Add delay for each skill card */
+        .skill-card:nth-child(1) {
             animation-delay: 0.5s;
         }
 
-        .skills li:nth-child(2) {
+        .skill-card:nth-child(2) {
             animation-delay: 1s;
         }
 
-        .skills li:nth-child(3) {
+        .skill-card:nth-child(3) {
             animation-delay: 1.5s;
+        }
+
+        .skill-card:nth-child(4) {
+            animation-delay: 2s;
+        }
+
+        .skill-card:nth-child(5) {
+            animation-delay: 2.5s;
+        }
+
+        /* Icons Styling */
+        .skill-card i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        /* Text Styling */
+        .skill-card h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Animation for List Items */
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }
+
+        /* Dark Mode Styling for Skill Cards */
+        .dark-mode .skill-card {
+            background: #1e1e1e;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode .skill-card i {
+            color: #007bff; /* Change icon color in dark mode */
+        }
+
+        .dark-mode .skill-card h3 {
+            color: #fff;
+        }
+
+        .dark-mode .skill-card p {
+            color: #ddd;
+        }
+
+        /* Animation for List Items */
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
         }
 
         /* Portfolio Section */
         .portfolio {
             text-align: center;
-            padding: 50px 20px;
-            background-color: #fff;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            animation: fadeInSection 1.5s ease-out forwards; /* Section fade-in animation */
         }
 
         .dark-mode .portfolio {
-            background-color: #1e1e1e;
+            background-color: #2d2d2d;
             color: #ffffff;
         }
 
+        /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             justify-items: center;
             transition: grid-template-columns 0.3s ease;
+            opacity: 0; /* Start invisible */
+            animation: fadeInGrid 1.2s ease-out forwards; /* Grid fade-in animation */
         }
 
+        /* Portfolio Item */
         .portfolio-item {
-            background-color: #f4f4f9;
+            background-color: #fcf5e8;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            opacity: 0; /* Start invisible */
+            animation: fadeInItem 1.5s ease-out forwards; /* Item fade-in with slide-in effect */
+            cursor: pointer;
+            overflow: hidden;
         }
 
         .dark-mode .portfolio-item {
-            background-color: #2d2d2d;
+            background-color: #1e1e1e;
             color: #ffffff;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
         }
 
         .portfolio-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+             color: black;
+        }
+
+        .dark-mode .portfolio-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(255, 250, 240, 0.8);
+            color: #ffffff;
         }
 
         .portfolio-item img {
             width: 100%;
             border-radius: 8px;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Fade-in animation for Portfolio Section */
+        @keyframes fadeInSection {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Fade-in animation for Portfolio Grid */
+        @keyframes fadeInGrid {
+        from {
+            opacity: 0;
+            transform: translateY(50px); /* Start below the screen */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Fade-in animation for Portfolio Items */
+        @keyframes fadeInItem {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Start from below */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+        .portfolio-grid {
+            grid-template-columns: 1fr; /* Single column on mobile */
+        }
+
+        .portfolio-item {
+            padding: 15px;
+        }
         }
 
         /* Carousel */
@@ -375,64 +642,53 @@
             font-size: 18px;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #ffffff;
-            color: black;
-        }
-
-        .dark-mode footer {
-            background-color: #1e1e1e;
+        .dark-mode .contact button {
+            background-color: #007bff;
             color: white;
+            padding: 12px;
+            font-size: 18px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact form {
-                width: 100%;
-            }
+        /* Footer Styling */
+        .footer p {
+            margin: 0;
         }
 
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .social-links a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s ease;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .social-links a:hover {
+            color: #ff6f61;
         }
 
-        /* Loading Spinner */
+        /* Loader Styling */
         .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .loader:before {
+            content: '';
+            border: 8px solid #fff;
+            border-top: 8px solid transparent;
             border-radius: 50%;
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
         }
 
         @keyframes spin {
@@ -440,35 +696,49 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Dark Mode Enhancements */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .footer {
+            background-color: #222;
+        }
+
+        body.dark-mode .footer p {
+            color: #f0f0f0;
+        }
+
         /* CSS untuk Tombol Modern */
         .modern-button {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 12px 24px;
-        background-color: #007bff; /* Warna latar belakang */
-        color: white; /* Warna teks */
-        text-decoration: none;
-        border-radius: 25px; /* Sudut tombol yang melengkung */
-        text-align: center;
-        font-size: 14px;
-        font-weight: 500;
-        transition: background-color 0.3s ease, transform 0.3s ease; /* Efek transisi */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek 3D */
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background-color: #007bff; /* Warna latar belakang */
+            color: white; /* Warna teks */
+            text-decoration: none;
+            border-radius: 25px; /* Sudut tombol yang melengkung */
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Efek transisi */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek 3D */
         }
 
         .modern-button:hover {
-        background-color: #0056b3; /* Warna latar belakang saat hover */
-        transform: translateY(-2px); /* Efek naik saat hover */
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+            background-color: #0056b3; /* Warna latar belakang saat hover */
+            transform: translateY(-2px); /* Efek naik saat hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
         }
 
         .modern-button:active {
-        transform: translateY(0); /* Efek turun saat diklik */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kembali ke bayangan awal */
+            transform: translateY(0); /* Efek turun saat diklik */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kembali ke bayangan awal */
          }
 
         .modern-button i {
-        margin-right: 8px; /* Jarak antara ikon dan teks */
+            margin-right: 8px; /* Jarak antara ikon dan teks */
         }
 
     </style>
@@ -476,19 +746,19 @@
 
 <body>
 
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#skills">Keterampilan</a></li>
-                <li><a href="#portfolio">Portofolio</a></li>
-                <li><a href="#contact">Kontak</a></li>
-                <li><button id="theme-toggle">Mode Gelap</button></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Navbar -->
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keterampilan</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+            <li><button id="theme-toggle">Mode Gelap</button></li>
+        </ul>
+    </nav>
+</header>
 
 <!-- Hero Section -->
 <section id="home" class="hero">
@@ -504,30 +774,65 @@
     </div>
 </section>
 
-    <!-- Script untuk Scroll ke Section -->
+<!-- Script untuk Scroll ke Section -->
 <script>
     function scrollToSection(sectionId) {
         document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 data-aos="fade-up">Tentang Saya</h2>
-        <p data-aos="fade-up">Halo! Saya Fathan Naufal Ahsan, seorang mahasiswa semester 8 program studi Teknik Sipil di Universitas Lampung. Selama masa studi, saya aktif berorganisasi di berbagai lembaga kemahasiswaan di fakultas, termasuk menjadi Ketua Departemen Humas di LD Fossi-FT Universitas Lampung dan Wakil Ketua Umum I di DPM-FT Universitas Lampung. Saya memiliki minat besar dalam dunia konstruksi dan perancangan teknik sipil, dengan keterampilan dalam menggunakan perangkat lunak seperti SketchUp, AutoCAD, SAP2000, Enscape, dan Microsoft Office.</p>
-    </section>
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="about-container">
+        <h2 data-aos="fade-up" class="section-title">Tentang Saya</h2>
+        <p data-aos="fade-up" data-aos-delay="200">
+            Halo! Saya Fathan Naufal Ahsan, seorang mahasiswa semester 8 program studi Teknik Sipil di Universitas Lampung. Selama masa studi, saya aktif berorganisasi di berbagai lembaga kemahasiswaan di fakultas, termasuk menjadi Ketua Departemen Humas di LD Fossi-FT Universitas Lampung dan Wakil Ketua Umum I di DPM-FT Universitas Lampung. Saya memiliki minat besar dalam dunia konstruksi dan perancangan teknik sipil, dengan keterampilan dalam menggunakan perangkat lunak seperti SketchUp, AutoCAD, SAP2000, Enscape, dan Microsoft Office.
+        </p>
+    </div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 data-aos="fade-up">Keterampilan</h2>
-        <ul>
-            <li data-aos="fade-up">SketchUp – Mahir</li>
-            <li data-aos="fade-up">Enscape – Mahir</li>
-            <li data-aos="fade-up">SAP2000 – Cukup mahir</li>
-            <li data-aos="fade-up">AutoCAD – Sangat mahir</li>
-            <li data-aos="fade-up">Microsoft Office (PowerPoint, Excel, Word) – Mahir</li>
-        </ul>
-    </section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <h2 data-aos="fade-up" class="section-title">Keterampilan</h2>
+    <div class="skills-container">
+        <!-- Skill 1: SketchUp -->
+        <div class="skill-card" data-aos="fade-up">
+            <i class="fab fa-sketch" aria-hidden="true"></i>
+            <h3>SketchUp</h3>
+            <div class="progress-bar" data-progress="90"></div>
+            <p>Mahir</p>
+        </div>
+        <!-- Skill 2: Enscape -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-cogs" aria-hidden="true"></i>
+            <h3>Enscape</h3>
+            <div class="progress-bar" data-progress="85"></div>
+            <p>Mahir</p>
+        </div>
+        <!-- Skill 3: SAP2000 -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-database" aria-hidden="true"></i>
+            <h3>SAP2000</h3>
+            <div class="progress-bar" data-progress="75"></div>
+            <p>Cukup Mahir</p>
+        </div>
+        <!-- Skill 4: AutoCAD -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-drafting-compass" aria-hidden="true"></i>
+            <h3>AutoCAD</h3>
+            <div class="progress-bar" data-progress="95"></div>
+            <p>Sangat Mahir</p>
+        </div>
+        <!-- Skill 5: Microsoft Office -->
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <i class="fab fa-microsoft" aria-hidden="true"></i>
+            <h3>Microsoft Office</h3>
+            <div class="progress-bar" data-progress="80"></div>
+            <p>Mahir</p>
+        </div>
+    </div>
+</section>
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio">
@@ -578,99 +883,103 @@
 <!-- Contact Section -->
 <section id="contact" class="contact">
     <h2 data-aos="fade-up">Kontak Saya</h2>
-    <form action="https://formspree.io/f/xeoeyokb" method="POST" data-aos="fade-up">
+    <form action="https://formspree.io/f/xeoeyokb" method="POST" data-aos="fade-up" class="contact-form">
         <label for="name">Nama</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required placeholder="Masukkan Nama Anda">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required placeholder="Masukkan Email Anda">
         <label for="message">Pesan</label>
-        <textarea id="message" name="message" required></textarea>
-        <button type="submit">Kirim</button>
+        <textarea id="message" name="message" required placeholder="Tulis Pesan Anda"></textarea>
+        <button type="submit" class="submit-btn">Kirim</button>
     </form>
 </section>
 
-    <!-- Social Media Links -->
-    <section class="social-media">
-        <h2 data-aos="fade-up">Temui Saya di Media Sosial</h2>
-        <div class="social-icons" data-aos="fade-up">
-            <a href="https://www.linkedin.com/in/fathan-naufal-ahsan" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/fathannaufal" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://instagram.com/fathannaufalahsan" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-    </section>
+<!-- Social Media Links -->
+<section class="social-media">
+    <h2 data-aos="fade-up">Temui Saya di Media Sosial</h2>
+    <div class="social-icons" data-aos="fade-up">
+        <a href="https://www.linkedin.com/in/fathan-naufal-ahsan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/fathannaufal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/fathannaufalahsan" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+</section>
 
-    <!-- Footer -->
+<!-- Footer -->
     <footer>
         <p>&copy; Fathan Naufal Ahsan</p>
     </footer>
 
-    <!-- Loading Spinner -->
-    <div class="loader" id="loader"></div>
+<!-- Loading Spinner -->
+<div class="loader" id="loader"></div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 1000,
-            once: true
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // Function to smoothly scroll to sections
+    function scrollToSection(sectionId) {
+        document.querySelector(sectionId).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
+    }
 
-        // Function to smoothly scroll to sections
-        function scrollToSection(sectionId) {
-            document.querySelector(sectionId).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    // Navbar scroll effect for sticky navbar
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
+    });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    // Carousel functionality (if necessary)
+    let currentIndex = 0;
 
-        // Carousel functionality
-        let currentIndex = 0;
+    function moveCarousel(direction) {
+        const carouselImages = document.querySelector('.carousel-images');
+        const totalImages = carouselImages.children.length;
+        currentIndex = (currentIndex + direction + totalImages) % totalImages;
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
-        function moveCarousel(direction) {
-            const carouselImages = document.querySelector('.carousel-images');
-            const totalImages = carouselImages.children.length;
-            currentIndex = (currentIndex + direction + totalImages) % totalImages;
-            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            themeToggle.textContent = 'Mode Terang';
+        } else {
+            themeToggle.textContent = 'Mode Gelap';
         }
+    });
 
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.textContent = 'Mode Terang';
-            } else {
-                themeToggle.textContent = 'Mode Gelap';
-            }
-        });
-
-        // PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(registration => {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-
-        // Simulate loading spinner
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.display = 'none';
+            navigator.serviceWorker.register('/sw.js').then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
         });
-    </script>
+    }
+
+    // Simulate loading spinner
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        loader.style.display = 'none';
+    });
+
+    // Dynamically set the year for copyright
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </section>
