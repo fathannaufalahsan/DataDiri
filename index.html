@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="description" content="Website pribadi Fathan Naufal Ahsan - Mahasiswa Teknik Sipil Universitas Lampung">
-    <meta name="keywords" content="Fathan Naufal Ahsan, Teknik Sipil, Universitas Lampung, Portofolio, Keterampilan">
+    <meta name="keywords" content="Fathan Naufal Ahsan, Teknik Sipil, Universitas Lampung, Portofolio, Keterampilan dan Kontak">
     <title>Fathan Naufal Ahsan - Website Pribadi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -69,10 +69,6 @@
             background-color: #007bff;
             padding: 15px 0;
             transition: background-color 0.3s;
-        }
-
-        header.scrolled {
-            background-color: #0056b3;
         }
 
         .navbar ul {
@@ -469,9 +465,20 @@
             animation: fadeInGrid 1.2s ease-out forwards; /* Grid fade-in animation */
         }
 
-        /* Portfolio Item */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            transition: grid-template-columns 0.3s ease;
+            opacity: 0; /* Start invisible */
+            animation: fadeInGrid 1.2s ease-out forwards; /* Grid fade-in animation */
+        }
+
         .portfolio-item {
             background-color: #fcf5e8;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 10px 30px #007bff;
@@ -484,20 +491,18 @@
 
         .dark-mode .portfolio-item {
             background-color: #1e1e1e;
-            color: #ffffff;
+            color: #fff;
             box-shadow: 0 10px 30px #007bff;
         }
 
         .portfolio-item:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 40px #ff3b2f;
-             color: black;
         }
 
         .dark-mode .portfolio-item:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 40px #28a745;
-            color: #ffffff;
         }
 
         .portfolio-item img {
@@ -508,18 +513,6 @@
 
         .portfolio-item img:hover {
             transform: scale(1.05);
-        }
-
-        /* Fade-in animation for Portfolio Section */
-        @keyframes fadeInSection {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
         }
 
         /* Fade-in animation for Portfolio Grid */
@@ -557,43 +550,183 @@
         }
         }
 
-        /* Carousel */
-        .carousel {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
+        /* Jurnal Section */
+        .journals {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            animation: fadeInSection 1.5s ease-out forwards;
+        }
+
+        .dark-mode .journals {
+            background-color: #2d2d2d;
+            color: #ffffff;
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            transition: grid-template-columns 0.3s ease;
+            opacity: 0;
+            animation: fadeInGrid 1.2s ease-out forwards;
+        }
+
+        .journal-item {
+            background-color: #fcf5e8;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px #007bff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeInItem 1.5s ease-out forwards;
+            cursor: pointer;
             overflow: hidden;
         }
 
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+        .dark-mode .journal-item {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            box-shadow: 0 10px 30px #007bff;
         }
 
-        .carousel-images img {
+        .journal-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px #ff3b2f;
+            color: black;
+        }
+
+        .dark-mode .journal-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px #28a745;
+            color: #ffffff;
+        }
+
+        /* Books Section */
+        .books {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            animation: fadeInSection 1.5s ease-out forwards;
+        }
+
+        .dark-mode .books {
+            background-color: #2d2d2d;
+            color: #ffffff;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            transition: grid-template-columns 0.3s ease;
+            opacity: 0;
+            animation: fadeInGrid 1.2s ease-out forwards;
+        }
+
+        .book-item {
+            background-color: #fcf5e8;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px #007bff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeInItem 1.5s ease-out forwards;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .dark-mode .book-item {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            box-shadow: 0 10px 30px #007bff;
+        }
+
+        .book-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px #ff3b2f;
+            color: black;
+        }
+
+        .dark-mode .book-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px #28a745;
+            color: #ffffff;
+        }
+
+        .book-item img {
             width: 100%;
             border-radius: 8px;
+            transition: transform 0.4s ease;
         }
 
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 24px;
-            border: none;
+        .book-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            animation: fadeInSection 1.5s ease-out forwards;
+        }
+
+        .dark-mode .certifications {
+            background-color: #2d2d2d;
+            color: #ffffff;
+        }
+
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            transition: grid-template-columns 0.3s ease;
+            opacity: 0;
+            animation: fadeInGrid 1.2s ease-out forwards;
+        }
+
+        .certification-item {
+            background-color: #fcf5e8;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px #007bff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            opacity: 0;
+            animation: fadeInItem 1.5s ease-out forwards;
             cursor: pointer;
-            padding: 10px;
-            z-index: 1;
+            overflow: hidden;
         }
 
-        .carousel-button.prev {
-            left: 10px;
+        .dark-mode .certification-item {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            box-shadow: 0 10px 30px #007bff;
         }
 
-        .carousel-button.next {
-            right: 10px;
+        .certification-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px #ff3b2f;
+            color: black;
+        }
+
+        .dark-mode .certification-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px #28a745;
+            color: #ffffff;
+        }
+
+        .certification-item img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.4s ease;
+        }
+
+        .certification-item img:hover {
+            transform: scale(1.05);
         }
 
         /* Contact Section */
@@ -760,16 +893,16 @@
 
 <body>
 
-<!-- Navbar -->
+<!-- ARIA Attributes -->
 <header>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <ul>
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#skills">Keterampilan</a></li>
-            <li><a href="#portfolio">Portofolio</a></li>
-            <li><a href="#contact">Kontak</a></li>
-            <li><button id="theme-toggle">Mode Gelap</button></li>
+            <li><a href="#home" aria-label="Beranda">Beranda</a></li>
+            <li><a href="#about" aria-label="Tentang">Tentang</a></li>
+            <li><a href="#skills" aria-label="Keterampilan">Keterampilan</a></li>
+            <li><a href="#portfolio" aria-label="Portofolio">Portofolio</a></li>
+            <li><a href="#contact" aria-label="Kontak">Kontak</a></li>
+            <li><button id="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button></li>
         </ul>
     </nav>
 </header>
@@ -893,7 +1026,7 @@
     <div class="portfolio-grid">
         <!-- Proyek 1 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek1.jpeg" alt="Proyek 1">
+            <img src="image/proyek1.jpeg" alt="Proyek 1" loading="lazy">
             <h3>Proyek 1</h3>
             <p>Desain Rumah Modern Dua Lantai</p>
             <a href="https://drive.google.com/file/d/1zu0ZoPVAbzVtcdYOzxHvxGDllXCZaIVW/view?usp=sharing" target="_blank" class="modern-button">
@@ -902,7 +1035,7 @@
         </div>
         <!-- Proyek 2 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek2.jpg" alt="Proyek 2">
+            <img src="image/proyek2.jpg" alt="Proyek 2" loading="lazy">
             <h3>Proyek 2</h3>
             <p>Desain Gedung Limbah Terpadu</p>
             <a href="https://youtu.be/n3K7JeyJ1Fg" target="_blank" class="modern-button">
@@ -911,7 +1044,7 @@
         </div>
         <!-- Proyek 3 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek3.png" alt="Proyek 3">
+            <img src="image/proyek3.png" alt="Proyek 3" loading="lazy">
             <h3>Proyek 3</h3>
             <p>Rumah Modern Minimalis</p>
             <a href="https://drive.google.com/file/d/1GGF9rI5gI7HpWFgRij74Ij_9x0ksGA5F/view?usp=sharing" target="_blank" class="modern-button">
@@ -920,7 +1053,7 @@
         </div>
         <!-- Proyek 4 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek4.png" alt="Proyek 4">
+            <img src="image/proyek4.png" alt="Proyek 4" loading="lazy">
             <h3>Proyek 4</h3>
             <p>Rehabilitasi Sistem Drainase</p>
             <a href="https://drive.google.com/file/d/1XcdBf3JAOYe5_gpx3dj0IfMr4hiEVmHz/view?usp=sharing" target="_blank" class="modern-button">
@@ -929,7 +1062,7 @@
         </div>
         <!-- Proyek 5 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek5.png" alt="Proyek 5">
+            <img src="image/proyek5.png" alt="Proyek 5" loading="lazy">
             <h3>Proyek 5</h3>
             <p>Website Klinik Al-Ahsan</p>
             <a href="https://al-ahsan.netlify.app/" target="_blank" class="modern-button">
@@ -938,7 +1071,7 @@
         </div>
         <!-- Proyek 6 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek6.png" alt="Proyek 6">
+            <img src="image/proyek6.png" alt="Proyek 6" loading="lazy">
             <h3>Proyek 6</h3>
             <p>Aplikasi DeepScour 2025</p>
             <a href="https://drive.google.com/file/d/15osSfZiotQp-cEZRFLGd_62wisgekEB3/view?usp=sharing" target="_blank" class="modern-button">
@@ -947,7 +1080,7 @@
         </div>
         <!-- Proyek 7 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek7.png" alt="Proyek 6">
+            <img src="image/proyek7.png" alt="Proyek 6" loading="lazy">
             <h3>Proyek 7</h3>
             <p>Aplikasi Super Converter 2025</p>
             <a href="https://drive.google.com/file/d/1DYAUF3UEJLGyECOw5ekAm_HWUPZTfSDe/view?usp=drive_link" target="_blank" class="modern-button">
@@ -956,11 +1089,248 @@
         </div>
                 <!-- Proyek 8 -->
         <div class="portfolio-item" data-aos="fade-up">
-            <img src="image/proyek8.png" alt="Proyek 6">
+            <img src="image/proyek8.png" alt="Proyek 6" loading="lazy">
             <h3>Proyek 8</h3>
             <p>Aplikasi QR ProX 2025</p>
             <a href="https://drive.google.com/file/d/1zf0ezcfyU0nopOGHWQM_zUwtZz4QGS0n/view?usp=drive_link" target="_blank" class="modern-button">
                 <i class="fas fa-video"></i> Lihat Video
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Jurnal Section -->
+<section id="journals" class="journals">
+    <h2 data-aos="fade-up">Jurnal</h2>
+    <div class="journal-grid">
+        <!-- Jurnal 1 -->
+        <div class="journal-item" data-aos="fade-up">
+            <h3>Mattawang: Jurnal Pengabdian Masyarakat</h3>
+            <p>Sosialisasi Digital Gagasan Waste Management Smart Building sebagai Solusi Pengelolaan Limbah Berkelanjutan</p>
+            <a href="https://drive.google.com/file/d/17lMW7gUJfP3IQym8xP-KNTiV2py4SgyF/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Books Section -->
+<section id="books" class="books">
+    <h2 data-aos="fade-up">Hak Kekayaan Intelektual</h2>
+    <div class="book-grid">
+        <!-- HAKI 1 -->
+        <div class="book-item" data-aos="fade-up">
+            <h3>Hak Cipta: Arsitektur</h3>
+            <p>Desain Gedung Pengelolaan Limbah</p>
+            <a href="https://drive.google.com/file/d/1CdDOmq9bb9q9cLuFWt5DUdrcY7yoPIaY/view?usp=drive_link" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Buku 2 -->
+        <div class="book-item" data-aos="fade-up">
+            <h3>Hak Cipta: Program Komputer</h3>
+            <p>DeepScour</p>
+            <a href="https://drive.google.com/file/d/1TuNnHs6AHg82xOHTCUv5edBE-l8aJExQ/view?usp=drive_link" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications">
+    <h2 data-aos="fade-up">Sertifikat</h2>
+    <div class="certification-grid">
+        <!-- Sertifikat 1 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: Creative Station</h3>
+            <p>Penggunaan Microsoft Projeck pada Manajemen Proyek</p>
+            <a href="https://drive.google.com/file/d/1P-2hcSf_DOm6pm3N3XP1J6vP8uzyCJHI/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 2 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: ZamilConsulting</h3>
+            <p>Webinar CAD for Engineering Design</p>
+            <a href="https://drive.google.com/file/d/1OD42l3xHr5SPo33R7_K0CGNlsL_TLacf/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 3 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: WIKA</h3>
+            <p>Literasi Digital Building Information Modelling (BIM)</p>
+            <a href="https://drive.google.com/file/d/18hgW46iUiM95FGxhwHH5RdM_q-twAUSJ/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 4 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: WIKA</h3>
+            <p>Basic Course Building Modelling With Tekla Structure</p>
+            <a href="https://drive.google.com/file/d/1RqzFlciQgc1CJioSVzVKLYSaMRLCtQ4x/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 5 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: WIKA</h3>
+            <p>Basic Course Building Modelling With Tekla Structural Designer</p>
+            <a href="https://drive.google.com/file/d/190UjrC6TWW08iI_uuSxZ7JXJPtao1k-v/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 6 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: Sketsa Sipil Indonesia</h3>
+            <p>“Pemodelan Analisa Struktur Beton dan Baja dengan Sap2000</p>
+            <a href="https://drive.google.com/file/d/16-10QbCU9WOApc7g1U0zmaYz9DNPcb_4/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 7 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: Zurnalis Architech Academy</h3>
+            <p>Menghitung Rencana Anggaran Biaya (RAB)</p>
+            <a href="https://drive.google.com/file/d/1lD2qMJ29n0crl5Zk1ir1dccxCsXTTeUa/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 8 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Teknik Sipil: Zurnalis Architech Academy</h3>
+            <p>Optimize Sketchup</p>
+            <a href="https://drive.google.com/file/d/12X9fwokRHZw76xKPco2q5h7YSaTnxJgf/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 9 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Volunteer: Mimpee.id</h3>
+            <p>Academic Mentorship by Mimpee Academy</p>
+            <a href="https://drive.google.com/file/d/1yze-p-i49avb3FpaAOS58C_Y7KzWpmZE/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 10 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Webinar: SketchUP Indonesia</h3>
+            <p>Perancangan Kota Anti Pandemi oleh SketchUP Indonesia</p>
+            <a href="hhttps://drive.google.com/file/d/1vOzhum7HmE9z9zWEkKRLw5eZoxjhvSx7/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 11 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Seminar Internasional: ASTRAtech</h3>
+            <p>Current BIM Conditions According to Academics, Practitioners, Glodon Authorized Training Center Astra Tech</p>
+            <a href="https://drive.google.com/file/d/1xXwn9jMUB_PKKvYbkOmlg7q8wTs-WEHs/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 12 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: BEM-FT</h3>
+            <p>Staff Ahli: Tanda Jasa Atas Pengabdiannya Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/1JVg-5P4YwiLOiGRjwWg7CYVjFazgEVbg/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 13 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: Himateks</h3>
+            <p>Staff Ahli: Surat Kerja Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/1lp5nC-ZDhzUOS0Hnrw8OVmDgDSI5fRDh/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 14 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: Fossi-FT</h3>
+            <p>Kepala Departemen Humas: Surat Kerja Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/1CV5bcLRW5OiTDvO1dZ12QgUDaAoTRq9i/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 15 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: Fossi-FT</h3>
+            <p>Ketua Pelaksana: Acara Qurma (Qurban bersama Fossi-FT)</p>
+            <a href="https://drive.google.com/file/d/1nRQvE_CUMpJ8_tr1gwjB2M0WcyjqPBWt/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 16 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: Fossi-FT</h3>
+            <p>Koor Acara: Reuni Akbar Fossi-FT </p>
+            <a href="https://drive.google.com/file/d/1GznxzMDyckHBszj2z2ukMHy5rs4KW7rW/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 17 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: Himateks</h3>
+            <p>Pemateri dalam Program Kerja ICE (Intelligent Civil Engineering)</p>
+            <a href="https://drive.google.com/file/d/1OMEnLsqXPoyzRi4nilDECq6cJEJ4LYd8/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 18 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Organisasi: Himateks</h3>
+            <p>Latihan Kepemimpinan dan Manajemen Mahasiswa Tingkat Dasar (LKMM TD)</p>
+            <a href="https://drive.google.com/file/d/1SuU-_tzgx7lvL9Enp5jqO3hdOTz2kGda/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 19 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Akademis: Asisten Pratikum</h3>
+            <p>Asisten Praktikum Mekanika Fluida Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/1tGBviiVnnYlGROal1MtjbPBIYAzPGeyx/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 20 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Akademis: Asisten Mata Kuliah</h3>
+            <p>Asisten Mata Kuliah Statika Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/1usLwkeMnVuMkBkX4c-8ryt7nzdCzHF3Q/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 21 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Akademis: Asisten Mata Kuliah</h3>
+            <p>Asisten Mata Kuliah Gambar Teknik Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/1CiOJY4oVyke39ricrIViGtxJ_udUFMdZ/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 22 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Akademis: Asisten Mata Kuliah</h3>
+            <p>Asisten Mata Kuliah Gambar Bangunan Sipil Tahun 2023</p>
+            <a href="https://drive.google.com/file/d/113ChrYweHX8Ej5oQ3nCTzFQ4Rulg2RWp/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 23 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Akademis: Asisten Pratikum</h3>
+            <p>Asisten Mata Kuliah Hidrolika Tahun 2024</p>
+            <a href="https://drive.google.com/file/d/1na1-wcDGceyhch3aESQ37kLFeItStC47/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
+            </a>
+        </div>
+        <!-- Sertifikat 24 -->
+        <div class="certification-item" data-aos="fade-up">
+            <h3>Akademis: Asisten Mata Kuliah</h3>
+            <p>Asisten Mata Kuliah Balok Beton Bertulang Tahun 2024</p>
+            <a href="https://drive.google.com/file/d/17Bzpit3XrkvLCoUaIBtIZyLQ6Heobmub/view?usp=sharing" target="_blank" class="modern-button">
+                <i class="fas fa-file-pdf"></i> Lihat PDF
             </a>
         </div>
     </div>
@@ -994,6 +1364,7 @@
 <!-- Footer -->
     <footer>
         <p>&copy; Fathan Naufal Ahsan</p>
+        <p>"Seluruh hak dilindungi dan dilarang menyalin atau menggunakan tanpa izin"</p>
     </footer>
 
 <!-- Loading Spinner -->
