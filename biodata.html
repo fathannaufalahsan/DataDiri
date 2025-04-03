@@ -891,8 +891,6 @@
     </style>
 </head>
 
-<body>
-
 <!-- ARIA Attributes -->
 <header>
     <nav class="navbar" aria-label="Main Navigation">
@@ -903,6 +901,7 @@
             <li><a href="#portfolio" aria-label="Portofolio">Portofolio</a></li>
             <li><a href="#contact" aria-label="Kontak">Kontak</a></li>
             <li><button id="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button></li>
+            <li><button onclick="logout()">Logout</button></li>
         </ul>
     </nav>
 </header>
@@ -920,6 +919,20 @@
         </div>
     </div>
 </section>
+
+<body>
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem("user_logged_in")) {
+            window.location.href = "index.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("user_logged_in");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
 
 <!-- Script untuk Scroll ke Section -->
 <script>
