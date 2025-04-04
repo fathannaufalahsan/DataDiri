@@ -902,6 +902,7 @@
             <li><a href="#contact" aria-label="Kontak">Kontak</a></li>
             <li><button id="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button></li>
             <li><button onclick="logout()">Logout</button></li>
+            </li>Sisa waktu sesi: <span id="countdown"></span></li>
         </ul>
     </nav>
 </header>
@@ -921,17 +922,55 @@
 </section>
 
 <body>
-    <script>
-        // Check if the user is logged in
-        if (!localStorage.getItem("user_logged_in")) {
-            window.location.href = "login.html";
+  <script>
+    // === KONSTAN WAKTU SESI ===
+    const MAX_SESSION_TIME = 10 * 60 * 1000; // 10 menit dalam milidetik
+
+    // === CEK LOGIN & TIMEOUT ===
+    const isLoggedIn = localStorage.getItem("user_logged_in") === "true";
+    const loginTime = parseInt(localStorage.getItem("login_time"));
+    const now = Date.now();
+
+    if (!isLoggedIn || !loginTime) {
+      // Tidak ada sesi login, kembali ke login.html
+      window.location.href = "login.html";
+    } else if (now - loginTime > MAX_SESSION_TIME) {
+      // Sesi kadaluarsa, logout otomatis
+      logout();
+    } else {
+      // Mulai countdown waktu sesi
+      startCountdown(MAX_SESSION_TIME - (now - loginTime));
+    }
+
+    // === FUNGSI LOGOUT ===
+    function logout() {
+      localStorage.removeItem("user_logged_in");
+      localStorage.removeItem("login_time");
+      alert("Sesi habis! Silakan login ulang.");
+      window.location.href = "login.html";
+    }
+
+    // === COUNTDOWN MASA AKTIF ===
+    function startCountdown(remainingTime) {
+      const countdownElement = document.getElementById("countdown");
+
+      function updateCountdown() {
+        if (remainingTime <= 0) {
+          logout();
+          return;
         }
 
-        function logout() {
-            localStorage.removeItem("user_logged_in");
-            window.location.href = "login.html";
-        }
-    </script>
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = Math.floor((remainingTime % 60000) / 1000);
+        countdownElement.textContent = `${minutes}m ${seconds}s`;
+
+        remainingTime -= 1000;
+        setTimeout(updateCountdown, 1000);
+      }
+
+      updateCountdown();
+    }
+  </script>
 </body>
 
 <!-- Script untuk Scroll ke Section -->
@@ -950,7 +989,6 @@
         </p>
     </div>
 </section>
-
 
 <!-- Skills Section -->
 <section id="skills" class="skills">
