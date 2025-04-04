@@ -924,7 +924,7 @@
 <body>
   <script>
     // === KONSTAN WAKTU SESI ===
-    const MAX_SESSION_TIME = 10 * 60 * 1000; // 10 menit dalam milidetik
+    const MAX_SESSION_TIME = 10 * 60 * 1000;
 
     // === CEK LOGIN & TIMEOUT ===
     const isLoggedIn = localStorage.getItem("user_logged_in") === "true";
@@ -946,7 +946,7 @@
     function logout() {
       localStorage.removeItem("user_logged_in");
       localStorage.removeItem("login_time");
-      alert("Masa aktif habis! Silakan login ulang.");
+      alert("Anda telah keluar dari akun. Terima kasih, silakan login kembali jika Anda ingin melanjutkan");
       window.location.href = "login.html";
     }
 
