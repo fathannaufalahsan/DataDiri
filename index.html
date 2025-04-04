@@ -902,7 +902,7 @@
             <li><a href="#contact" aria-label="Kontak">Kontak</a></li>
             <li><button id="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button></li>
             <li><button onclick="logout()">Logout</button></li>
-            </li>Sisa waktu sesi: <span id="countdown"></span></li>
+            </li>Masa Aktif: <span id="countdown"></span></li>
         </ul>
     </nav>
 </header>
@@ -946,7 +946,7 @@
     function logout() {
       localStorage.removeItem("user_logged_in");
       localStorage.removeItem("login_time");
-      alert("Sesi habis! Silakan login ulang.");
+      alert("Masa aktif habis! Silakan login ulang.");
       window.location.href = "login.html";
     }
 
