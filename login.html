@@ -19,6 +19,7 @@
             align-items: center;
             height: 100vh;
             transition: background-color 0.3s ease;
+            color: #333;
         }
 
         body.dark-mode {
@@ -37,7 +38,7 @@
 
         button {
             padding: 12px 25px;
-            background-color: #ff3b2f;
+            background-color: #007bff;
             color: white;
             border: none;
             cursor: pointer;
@@ -47,7 +48,7 @@
         }
 
         button:hover {
-            background-color: #ff3b2f;
+            background-color: #0056b3;
         }
 
         .dark-mode button {
@@ -55,7 +56,7 @@
         }
 
         .dark-mode button:hover {
-            background-color: #28a745;
+            background-color: #218838;
         }
 
         /* Login Form */
@@ -63,7 +64,7 @@
             background-color: #ffffff;
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px #007bff;
             width: 100%;
             max-width: 400px;
             text-align: center;
@@ -73,12 +74,17 @@
         .dark-mode .login-container {
             background-color: #1e1e1e;
             color: #ffffff;
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 30px #28a745;
         }
 
         .login-container h2 {
             margin-bottom: 30px;
             font-size: 2rem;
+            color: black;
+        }
+
+        .dark-mode .login-container h2 {
+            color: #ffffff;
         }
 
         .login-container label {
@@ -86,16 +92,57 @@
             margin-bottom: 5px;
             text-align: left;
             font-size: 16px;
+            color: black;
+        }
+
+        .dark-mode .login-container label {
+            color: white;
         }
 
         .login-container input[type="text"],
         .login-container input[type="password"] {
-            width: 100%;
+            width: 95%;
             padding: 10px;
+            max-width: 450px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .dark-mode .login-container input[type="text"]:focus,
+        .dark-mode .login-container input[type="password"]:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .login-container .input-group {
+            position: relative;
+        }
+
+        .login-container .input-group i {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .login-container .input-group i:hover {
+            color: #007bff;
+        }
+
+        .dark-mode .login-container .input-group i:hover {
+            color: #28a745;
         }
 
         .login-container button {
@@ -125,6 +172,13 @@
         .login-container .message {
             margin-top: 20px;
             font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container .message i {
+            margin-right: 10px;
         }
 
         .login-container .message.success {
@@ -177,66 +231,102 @@
         .dark-mode .theme-toggle:hover {
             background-color: #218838;
         }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px;
+            }
+
+            .login-container h2 {
+                font-size: 1.8rem;
+            }
+
+            .login-container input[type="text"],
+            .login-container input[type="password"] {
+                font-size: 14px;
+            }
+
+            .login-container button {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
 <body>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button>
 
-  <div class="login-container">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      <button type="submit">Login</button>
-    </form>
-    <p id="loginMessage" class="message"></p>
-  </div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <i class="fas fa-eye" id="togglePassword"></i>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginMessage" class="message"></p>
+    </div>
 
-  <script>
-    // === MODE GELAP ===
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    <script>
+        // === MODE GELAP ===
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
 
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      themeToggle.textContent = body.classList.contains('dark-mode') ? 'Mode Terang' : 'Mode Gelap';
-    });
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? 'Mode Terang' : 'Mode Gelap';
+        });
 
-    // === CEK APAKAH SUDAH LOGIN ===
-    if (localStorage.getItem("user_logged_in") === "true") {
-      window.location.href = "index.html"; // Langsung masuk ke halaman utama
-    }
+        // === CEK APAKAH SUDAH LOGIN ===
+        if (localStorage.getItem("user_logged_in") === "true") {
+            window.location.href = "index.html"; // Langsung masuk ke halaman utama
+        }
 
-    // === LOGIN HANDLER ===
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+        // === LOGIN HANDLER ===
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
 
-      const validUsername = "admin";
-      const validPassword = "password";
+            const validUsername = "admin";
+            const validPassword = "password";
 
-      if (username === validUsername && password === validPassword) {
-        document.getElementById("loginMessage").textContent = "Login berhasil!";
-        document.getElementById("loginMessage").classList.remove("error");
-        document.getElementById("loginMessage").classList.add("success");
+            if (username === validUsername && password === validPassword) {
+                document.getElementById("loginMessage").innerHTML = "<i class='fas fa-check-circle'></i> Login berhasil!";
+                document.getElementById("loginMessage").classList.remove("error");
+                document.getElementById("loginMessage").classList.add("success");
 
-        localStorage.setItem("user_logged_in", "true");
-        localStorage.setItem("login_time", Date.now()); // Simpan waktu login
+                localStorage.setItem("user_logged_in", "true");
+                localStorage.setItem("login_time", Date.now()); // Simpan waktu login
 
-        setTimeout(() => {
-          window.location.href = "index.html"; // Arahkan ke halaman utama
-        }, 1500);
-      } else {
-        document.getElementById("loginMessage").textContent = "Username atau password salah!";
-        document.getElementById("loginMessage").classList.remove("success");
-        document.getElementById("loginMessage").classList.add("error");
-      }
-    });
-  </script>
+                setTimeout(() => {
+                    window.location.href = "index.html"; // Arahkan ke halaman utama
+                }, 1500);
+            } else {
+                document.getElementById("loginMessage").innerHTML = "<i class='fas fa-exclamation-circle'></i> Username atau password salah!";
+                document.getElementById("loginMessage").classList.remove("success");
+                document.getElementById("loginMessage").classList.add("error");
+            }
+        });
+
+        // === PASSWORD VISIBILITY TOGGLE ===
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
 </body>
 
 </html>
