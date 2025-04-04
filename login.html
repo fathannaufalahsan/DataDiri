@@ -181,62 +181,62 @@
 </head>
 
 <body>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p id="loginMessage" class="message"></p>
-    </div>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Mode Gelap">Mode Gelap</button>
 
-    <script>
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginMessage" class="message"></p>
+  </div>
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.textContent = 'Mode Terang';
-            } else {
-                themeToggle.textContent = 'Mode Gelap';
-            }
-        });
+  <script>
+    // === MODE GELAP ===
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
 
-    // Placeholder logic for login
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      themeToggle.textContent = body.classList.contains('dark-mode') ? 'Mode Terang' : 'Mode Gelap';
+    });
+
+    // === CEK APAKAH SUDAH LOGIN ===
+    if (localStorage.getItem("user_logged_in") === "true") {
+      window.location.href = "index.html"; // Langsung masuk ke halaman utama
+    }
+
+    // === LOGIN HANDLER ===
     document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-    // Placeholder credentials
-    var validUsername = "admin";
-    var validPassword = "password";
+      const validUsername = "admin";
+      const validPassword = "password";
 
-    if (username === validUsername && password === validPassword) {
+      if (username === validUsername && password === validPassword) {
         document.getElementById("loginMessage").textContent = "Login berhasil!";
         document.getElementById("loginMessage").classList.remove("error");
         document.getElementById("loginMessage").classList.add("success");
 
-        // Simpan status login
         localStorage.setItem("user_logged_in", "true");
+        localStorage.setItem("login_time", Date.now()); // Simpan waktu login
 
-        // Redirect ke halaman biodata
         setTimeout(() => {
-            window.location.href = "index.html";
+          window.location.href = "index.html"; // Arahkan ke halaman utama
         }, 1500);
-    } else {
+      } else {
         document.getElementById("loginMessage").textContent = "Username atau password salah!";
         document.getElementById("loginMessage").classList.remove("success");
         document.getElementById("loginMessage").classList.add("error");
-    }
+      }
     });
-    </script>
+  </script>
 </body>
 
 </html>
